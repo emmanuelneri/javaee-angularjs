@@ -1,0 +1,34 @@
+<html ng-app="pessoaController">
+<head>
+    <title></title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+
+    <script src="controller/pessoaController.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css"/>
+</head>
+
+    <body>
+
+        <h1>Pessoas</h1>
+
+        <div data-ng-controller="listarPessoas">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pessoa in pessoas">
+                        <td>{{pessoa.id}}</td>
+                        <td>{{pessoa.nome}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
