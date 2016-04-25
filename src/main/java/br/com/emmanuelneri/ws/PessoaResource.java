@@ -32,7 +32,7 @@ public class PessoaResource {
 
     @POST
     @Path("cadastrar")
-    public Response salvar(@Valid Pessoa pessoa) {
+    public Response salvar(Pessoa pessoa) {
         pessoaService.save(pessoa);
         return Response.ok().build();
     }

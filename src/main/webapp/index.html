@@ -19,15 +19,13 @@
                 <div class="panel-heading">Cadastro</div>
                 <div class="panel-body">
 
-                    <form ng-controller="gerenciarPessoa">
+                    <form ng-controller="pessoaForm">
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-4">
                                     <label>Nome</label>
-                                    <input class="form-control" placeholder="Nome..." ng-model="pessoa.nome" required>
+                                    <input class="form-control" placeholder="Nome" ng-model="pessoa.nome" required>
                                 </div>
-                            </div>
-                            <div class="form-group">
                                 <div class="col-md-2">
                                     <label>CPF</label>
                                     <input class="form-control" placeholder="CPF" ng-model="pessoa.cpf" required>
@@ -35,17 +33,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary" ng-click="salvar()">Salvar</button>
-                            </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-4">
+                                <div class="btn-group">
+                                    <button type="submit" ng-click="salvar(pessoa)" class="btn btn-primary">Salvar</button>
+                                </div>
+                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
-
-
 
             <div data-ng-controller="listarPessoas">
                 <table class="table table-striped table-hover">

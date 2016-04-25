@@ -6,8 +6,12 @@ app.controller('listarPessoas', function ($scope, $http) {
     });
 });
 
-app.controller('gerenciarPessoa', function($scope, Person, $location) {
-    
+app.controller('pessoaForm', function($scope, $http) {
+    $scope.pessoa = {nome:'', cpf:''};
+
+    $scope.salvar = function(pessoa) {
+        $http.post('http://localhost:8080/javaee-angularjs/ws/pessoa/cadastrar', $scope.pessoa)
+    }
 });
 
 app.filter('cpf', function(){
