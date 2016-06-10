@@ -9,8 +9,8 @@ app.controller('listarPessoas', function ($scope, $http) {
 app.controller('pessoaForm', function($scope, $http) {
     $scope.pessoa = {nome:'', cpf:''};
 
-    $scope.salvar = function(pessoa) {
-        $http.post('http://localhost:8080/javaee-angularjs/ws/pessoa/cadastrar', $scope.pessoa)
+    $scope.salvar = function() {
+        $http.post('http://localhost:8080/javaee-angularjs/ws/pessoa/cadastrar', $scope.pessoa);
     }
 });
 

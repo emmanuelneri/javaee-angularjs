@@ -30,7 +30,7 @@ public class Pessoa implements Model<Long> {
     private String nome;
 
     @NotNull
-    @Size(min = 14, max = 14)
+    @Size(min = 12, max = 14)
     private String cpf;
 
     public Long getId() {
