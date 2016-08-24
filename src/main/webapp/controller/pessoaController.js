@@ -10,7 +10,10 @@ app.controller('pessoaForm', function($scope, $http) {
     $scope.pessoa = {nome:'', cpf:''};
 
     $scope.salvar = function() {
-        $http.post('http://localhost:8080/javaee-angularjs/ws/pessoa/cadastrar', $scope.pessoa);
+        $http.post('http://localhost:8080/javaee-angularjs/ws/pessoa/cadastrar', $scope.pessoa)
+        .error(function(response){
+            $scope.erros = response;
+        })
     }
 });
 

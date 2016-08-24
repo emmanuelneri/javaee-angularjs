@@ -20,6 +20,15 @@
                 <div class="panel-body">
 
                     <form ng-controller="pessoaForm">
+
+                        <div ng-show="erros.length" class="alert alert-danger">
+                            <ul>
+                                <div ng-repeat="erro in erros">
+                                    <li>{{erro}}</li>
+                                </div>
+                            </ul>
+                        </div>
+
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-4">

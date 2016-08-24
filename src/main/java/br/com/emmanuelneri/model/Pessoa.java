@@ -21,16 +21,16 @@ public class Pessoa implements Model<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Data de cadastro não pode ser nula")
     @Column(name = "data_cadastro")
     private LocalDate dataCadastro = LocalDate.now();
 
-    @NotNull
+    @NotNull(message = "Nome não pode ser nulo")
     @Size(min = 1)
     private String nome;
 
-    @NotNull
-    @Size(min = 12, max = 14)
+    @NotNull(message = "CPF não pode ser nulo")
+    @Size(min = 11, max = 11, message = "CPF deve conter 11 dígitos")
     private String cpf;
 
     public Long getId() {
