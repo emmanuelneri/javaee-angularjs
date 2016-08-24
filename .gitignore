@@ -13,3 +13,5 @@ test-output
 .idea/*
 !.idea/codeStyleSettings.xml
 !.idea/encodings.xml
+
+src/main/webapp/libs/components/*
