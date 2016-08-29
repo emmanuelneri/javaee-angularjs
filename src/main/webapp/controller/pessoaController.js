@@ -16,8 +16,12 @@ function PessoaController($scope, $http) {
             });
     };
 
-    $scope.editar = function(pessoa) {
-        $scope.pessoa = pessoa;
+    $scope.editar = function(id) {
+        $scope.pessoa = $http.get("http://localhost:8080/javaee-angularjs/ws/pessoa/buscar", {
+            params: {id: id}
+        }).then(function(response) {
+            $scope.pessoa = response.data;
+        });
     };
 
     function iniciarPessoa() {
