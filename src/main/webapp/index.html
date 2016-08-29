@@ -61,6 +61,7 @@
                         <th>Nome</th>
                         <th>CPF</th>
                         <th>Data Cadastro</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -69,6 +70,7 @@
                         <td>{{pessoa.nome}}</td>
                         <td>{{pessoa.cpf | cpf}}</td>
                         <td>{{pessoa.dataCadastro}}</td>
+                        <td><button type="button" class="btn btn-default" ng-click="editar(pessoa)">Editar</button></td>
                     </tr>
                     </tbody>
                 </table>

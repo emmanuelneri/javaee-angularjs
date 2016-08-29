@@ -16,6 +16,10 @@ function PessoaController($scope, $http) {
             });
     };
 
+    $scope.editar = function(pessoa) {
+        $scope.pessoa = pessoa;
+    };
+
     function iniciarPessoa() {
         $scope.pessoa = {nome:'', cpf:''};
     }
