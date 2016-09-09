@@ -1,0 +1,61 @@
+<h1>Pessoas</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Cadastro</div>
+    <div class="panel-body">
+        <form>
+
+            <div ng-show="erros.length" class="alert alert-danger">
+                <ul>
+                    <div ng-repeat="erro in erros">
+                        <li>{{erro}}</li>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <label>Nome</label>
+                        <input class="form-control" placeholder="Nome" ng-model="pessoa.nome" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label>CPF</label>
+                        <input class="form-control" placeholder="CPF" ng-model="pessoa.cpf" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-4">
+                    <div class="btn-group">
+                        <button type="submit" ng-click="salvar()" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Cadastro</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="pessoa in pessoas">
+            <td>{{pessoa.id}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.cpf | cpf}}</td>
+            <td>{{pessoa.dataCadastro}}</td>
+            <td><button type="button" class="btn btn-default" ng-click="editar(pessoa.id)">Editar</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
