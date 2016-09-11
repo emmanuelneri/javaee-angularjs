@@ -41,25 +41,19 @@ public class PessoaResource {
         return pessoaService.findById(id);
     }
 
-    @POST
-    @Path("cadastrar/v1/")
-    public Response salvar2(@Valid Pessoa pessoa) {
-        pessoaService.save(pessoa);
-        return Response.ok().build();
-    }
 
-        @POST
-        @Path("cadastrar")
-        public Response salvar(Pessoa pessoa) {
-            try {
-                pessoaService.save(pessoa);
-                return Response.ok().build();
-            } catch (ConstraintViolationException cvex) {
-                final Set<String> erros = cvex.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.toSet());
-                return Response.status(Response.Status.BAD_REQUEST).entity(erros).build();
-            } catch (Exception ex) {
-                return Response.status(Response.Status.BAD_REQUEST).entity("Instabilidade no serviço").build();
-            }
+    @POST
+    @Path("cadastrar")
+    public Response salvar(Pessoa pessoa) {
+        try {
+            pessoaService.save(pessoa);
+            return Response.ok().build();
+        } catch (ConstraintViolationException cvex) {
+            final Set<String> erros = cvex.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.toSet());
+            return Response.status(Response.Status.BAD_REQUEST).entity(erros).build();
+        } catch (Exception ex) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Instabilidade no serviço").build();
         }
+    }
 }
 
