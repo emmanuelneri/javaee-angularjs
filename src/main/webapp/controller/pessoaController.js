@@ -6,7 +6,7 @@ function PessoaController($scope, $http) {
     listar($scope, $http);
 
     $scope.salvar = function() {
-        $http.post('http://localhost:8080/ws/pessoa/cadastrar', $scope.pessoa)
+        $http.post('/ws/pessoa/cadastrar', $scope.pessoa)
             .success(function (data) {
                 iniciarPessoa();
                 listar($scope, $http);
@@ -17,11 +17,10 @@ function PessoaController($scope, $http) {
     };
 
     $scope.editar = function(id) {
-        $scope.pessoa = $http.get("http://localhost:8080/ws/pessoa/buscar", {
-            params: {id: id}
-        }).then(function(response) {
-            $scope.pessoa = response.data;
-        });
+        $scope.pessoa = $http.get("/ws/pessoa/buscar/" + id)
+            .then(function(response) {
+                $scope.pessoa = response.data;
+            });
     };
 
     function iniciarPessoa() {
@@ -29,7 +28,7 @@ function PessoaController($scope, $http) {
     }
 
     function listar($scope, $http) {
-        $http.get('http://localhost:8080/ws/pessoa/listar').then(function(response) {
+        $http.get('/ws/pessoa/listar').then(function(response) {
             $scope.pessoas = response.data;
         });
     }
