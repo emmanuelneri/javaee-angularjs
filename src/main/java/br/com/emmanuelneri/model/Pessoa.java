@@ -26,7 +26,7 @@ public class Pessoa implements Model<Long> {
     private LocalDate dataCadastro = LocalDate.now();
 
     @NotNull(message = "Nome não pode ser nulo")
-    @Size(min = 1)
+    @Size(min = 1, max = 200)
     private String nome;
 
     @NotNull(message = "CPF não pode ser nulo")

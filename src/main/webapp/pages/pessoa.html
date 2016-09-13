@@ -3,7 +3,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">Cadastro</div>
     <div class="panel-body">
-        <form>
+        <form name="form">
 
             <div ng-show="erros.length" class="alert alert-danger">
                 <ul>
@@ -14,14 +14,26 @@
             </div>
 
             <div class="row">
-                <div class="form-group">
-                    <div class="col-md-4">
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error': form.nome.$touched && form.nome.$invalid}">
                         <label>Nome</label>
-                        <input class="form-control" placeholder="Nome" ng-model="pessoa.nome" required>
+                        <input name="nome" class="form-control" placeholder="Nome" ng-model="pessoa.nome"  ng-maxlength="200" required>
+
+                        <div ng-messages="form.nome.$error" ng-show="form.nome.$touched" class="form-message-font">
+                            <div ng-messages-include="pages/form-messages.html"></div>
+                        </div>
                     </div>
-                    <div class="col-md-2">
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{ 'has-error': form.cpf.$touched && form.cpf.$invalid}">
                         <label>CPF</label>
-                        <input class="form-control" placeholder="CPF" ng-model="pessoa.cpf" required>
+                        <input name="cpf" class="form-control" placeholder="CPF" ng-model="pessoa.cpf" ng-minlength="11" ng-maxlength="11" required>
+
+                        <div ng-messages="form.cpf.$error" ng-show="form.cpf.$touched" class="form-message-font">
+                            <div ng-messages-include="pages/form-messages.html"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -29,7 +41,7 @@
             <div class="row" style="margin-top: 10px">
                 <div class="col-md-4">
                     <div class="btn-group">
-                        <button type="submit" ng-click="salvar()" class="btn btn-primary">Salvar</button>
+                        <button type="submit" ng-click="salvar()" ng-disabled="form.$invalid" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
             </div>

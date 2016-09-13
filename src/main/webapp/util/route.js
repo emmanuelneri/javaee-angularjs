@@ -1,4 +1,4 @@
-angular.module('javaeeAngular', ['ngRoute'])
+angular.module('javaeeAngular', ['ngRoute', 'ngMessages'])
     .config(function($routeProvider) {
 
         $routeProvider
